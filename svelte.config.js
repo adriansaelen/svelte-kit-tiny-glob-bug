@@ -1,4 +1,11 @@
 import adapter from '@sveltejs/adapter-auto';
+import glob from 'tiny-glob/sync.js';
+
+const project_files = new Set(
+  glob('**', { cwd: routes, filesOnly: true })
+)
+
+console.log(project_files)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
